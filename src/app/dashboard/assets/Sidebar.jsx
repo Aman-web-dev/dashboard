@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import {
   UserIcon,
   DatabaseIcon,
@@ -14,15 +14,18 @@ import {
 import Link from "next/link";
 
 function Sidebar() {
-  let node;
+
+  const [smallScreen,setSmallscreen]=useState(false)
+
   useEffect(() => {
+    // console.log("hello")
     const elem = document.getElementsByClassName("card-container");
     console.log(elem);
     for (let i = 0; i < elem.length; i++) {
       elem[i].addEventListener("click", (e) => {
         if (elem[i].contains(e.target) || e.target) {
           const child = elem[i].getElementsByTagName("div");
-          node = child;
+    
 
           child[0].classList.remove("bg-blue-400");
           child[0].classList.remove("bg-[#f6fafb]");
@@ -31,6 +34,13 @@ function Sidebar() {
         }
       });
     }
+
+    document.addEventListener('resize',()=>{
+      console.log("hello")
+      if(window.innerWidth<740){
+      console.log("small")
+    }
+    })
   }, []);
 
   const eventListner = (e) => {
@@ -38,7 +48,12 @@ function Sidebar() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-4 bg-[#ffffff] shadow-lg  min-h-screen text-black pb-8">
+    <div className={`flex flex-col ${smallScreen?"hidden":""} absolute md:static items-center gap-4 bg-[#ffffff] shadow-lg  min-h-screen text-black pb-8 `}>
+
+     {smallScreen?
+      <p className="text-gray-500 font-bold text-sm mx-auto mt-4" onClick={()=>setSmallscreen(true)}>
+        Close
+      </p>:""}
       <p className="text-gray-500 font-bold text-sm mx-auto mt-4">
         Darshboards
       </p>

@@ -3,7 +3,7 @@ import { BackIcon,ForwardIcon } from "./Svg";
 
 function Main() {
   return (
-    <div className="flex flex-col  w-full p-2 gap-2">
+    <div className="flex flex-col w-full p-2 gap-2">
       <Header />
       <Filters />
       <CardContainers />
@@ -24,7 +24,7 @@ const Header = () => {
 
 const Filters = () => {
   return (
-    <div className="bg-white  py-4 px-2 rounded-xl">
+    <div className="bg-white  py-4 px-2 rounded-xl ">
       <p className="text-xl font-bold text-purple-950">Filter</p>
     </div>
   );
@@ -32,8 +32,7 @@ const Filters = () => {
 
 const CardContainers = () => {
   return (
-    <div className="flex flex-row gap-2 justify-between">
-      <Card />
+    <div className="flex flex-wrap gap-2 justify-between">
       <Card />
       <Card />
       <Card />
@@ -44,8 +43,8 @@ const CardContainers = () => {
 
 const Card = () => {
   return (
-    <section className="py-4 bg-white  rounded-xl px-2 border-l-4 border-red-400">
-      <section className="flex flex-row items-center">
+    <section className="py-4 bg-white   rounded-xl px-2 border-l-4 border-red-400">
+      <section className="flex flex-row items-center w-full">
 
         <div className="flex flex-col">
         <p className="font-bold font-sm text-green-700">
@@ -53,8 +52,6 @@ const Card = () => {
         </p>
         <p className="text-sm font-normal text-black">Today/Period</p>
         </div>
-      
-
         <img
           className="w-20 h-20 rounded-full"
           src="https://img.freepik.com/free-vector/butterfly-logo-colorful-gradient-illustrations_483537-972.jpg?t=st=1714240907~exp=1714244507~hmac=c8812f59dc613195acb242232fb3398a38f9f795e94a92e62ccecccb6c1d466a&w=996"
@@ -68,11 +65,11 @@ const Table = () => {
 
   const tableStyle = {
     border: "2px solid black",
-    padding:"15px",
+    padding:"15px 0 ",
     margin:"2px"
 };
   return (
-    <div className="w-[100%] my-8 bg-white rounded-xl p-4 h-screen">
+    <div className="my-8 bg-white rounded-xl p-4 h-screen">
       <section className="flex flex-row items-center justify-between">
         <p className="text-xl font-bold text-purple-950">Consultants</p>
 
